@@ -1,8 +1,10 @@
 package cn.huanzi.qch.springbootredis;
 
+import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ public class SpringbootRedisApplication {
     @Autowired
     private StringRedisTemplate template;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
     //测试：http://localhost:10088/redis/get/huanzi
     @RequestMapping("/redis/get/{key}")
     private String get(@PathVariable("key") String key){
