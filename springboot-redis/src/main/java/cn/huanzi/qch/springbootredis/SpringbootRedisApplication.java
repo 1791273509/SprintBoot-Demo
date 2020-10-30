@@ -37,7 +37,21 @@ public class SpringbootRedisApplication {
         }
         return flag;
     }
-
+    @RequestMapping("/redis/increment")
+    private Boolean incre(){
+        boolean flag = true;
+        try {
+            template.opsForValue().increment("1");
+        } catch (Exception e) {
+            e.printStackTrace();
+            flag = false;
+        }
+        return flag;
+    }
+    @RequestMapping("/get")
+    private Boolean get(){
+        return true;
+    }
     public static void main(String[] args) {
         SpringApplication.run(SpringbootRedisApplication.class, args);
     }
