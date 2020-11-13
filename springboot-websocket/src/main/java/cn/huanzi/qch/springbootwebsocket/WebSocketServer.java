@@ -187,9 +187,9 @@ public class WebSocketServer {
      */
     @RequestMapping("/getOnlineList")
     private List<String> getOnlineList(String username) {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         //遍历webSocketMap
-        for (Entry<String, Session> entry : WebSocketServer.sessionMap.entrySet()) {
+        for (Entry<String, Session> entry : sessionMap.entrySet()) {
             if (!entry.getKey().equals(username)) {
                 list.add(entry.getKey());
             }

@@ -4,6 +4,8 @@ import cn.huanzi.qch.springbootjackson.vo.UserVoByJson;
 import cn.huanzi.qch.springbootjackson.vo.UserVoByMvc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.concurrent.locks.ReentrantLock;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -76,7 +78,7 @@ public class TestContrller {
      * MVC方式注入
      */
     @RequestMapping("testByMvc")
-    public UserVoByMvc testByMvc(UserVoByMvc userVo) {
+    public UserVoByMvc testByMvc(@Valid UserVoByMvc userVo) {
         System.out.println(userVo);
         return userVo;
     }
@@ -134,7 +136,6 @@ public class TestContrller {
             jsonString = "{\"userName\":\"张三\"}";
             UserVoByJson userVo1 = mapper.readValue(jsonString, UserVoByJson.class);
             System.out.println(userVo1);
-
             //3、Java对象类型转换
             HashMap<Object, Object> map = new HashMap<>();
             map.put("userName", "张三");
