@@ -1,9 +1,13 @@
 package cn.huanzi.qch.springbootjackson.vo;
 
-import com.fasterxml.jackson.annotation.*;
-import lombok.Data;
-
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
+import lombok.Data;
 
 @Data
 //序列化、反序列化忽略的属性，多个时用“,”隔开
